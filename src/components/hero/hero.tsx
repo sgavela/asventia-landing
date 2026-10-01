@@ -69,7 +69,7 @@ export function Hero({ onSelectAgent }: { onSelectAgent: (id: AgentId) => void }
         {/* ---------------- footage ---------------- */}
         <m.div style={{ y: mediaY }} className="absolute inset-0">
           <m.div style={{ x: sx, y: sy }} className="absolute inset-0">
-            <div className="intro-settle absolute inset-0 origin-[60%_45%] grayscale">
+            <div className="intro-settle absolute inset-0 origin-[60%_45%]">
               <SceneMedia playing={running} />
             </div>
           </m.div>
@@ -105,7 +105,7 @@ export function Hero({ onSelectAgent }: { onSelectAgent: (id: AgentId) => void }
               </span>
               <span className="line-mask">
                 <span className="intro-rise inline-block" style={{ "--d": "0.18s" } as CSSProperties}>
-                  real business operations.
+                  real business operations<span className="text-accent">.</span>
                 </span>
               </span>
             </h1>
@@ -171,7 +171,7 @@ function IndexItem({
       {active && (
         <span
           aria-hidden
-          className="absolute inset-x-0 -top-px h-px origin-left bg-white"
+          className="absolute inset-x-0 -top-px h-px origin-left bg-accent"
           style={{
             animation: `marquee-progress ${CYCLE_MS}ms linear both`,
             animationPlayState: running ? "running" : "paused",
@@ -180,7 +180,7 @@ function IndexItem({
       )}
       <a href="#agents" onClick={onSelect} className="group block py-5 pr-6 xl:pr-10 [@media(max-height:820px)]:py-4">
         <span
-          className={`label transition-colors duration-500 ${active ? "text-white" : "text-white/50"}`}
+          className={`label transition-colors duration-500 ${active ? "text-accent" : "text-white/50"}`}
         >
           {index}
         </span>

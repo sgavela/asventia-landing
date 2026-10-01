@@ -95,7 +95,7 @@ export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone
   const tones = {
     neutral: "bg-white/8 text-white/70",
     strong: "bg-white text-ink",
-    outline: "text-white ring-1 ring-white/40 ring-inset",
+    outline: "bg-accent/15 text-accent",
   };
   return (
     <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${tones[tone]}`}>

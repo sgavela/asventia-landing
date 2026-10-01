@@ -72,7 +72,7 @@ export function Agents({ request }: { request: AgentRequest }) {
     >
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
         <div className="flex items-center gap-2.5">
-          <span className="grid size-6 place-items-center bg-white">
+          <span className="grid size-6 place-items-center bg-accent">
             <Mark className="h-2.5 w-auto text-ink" />
           </span>
           <span className="label text-white/70">{agent.name}</span>
@@ -126,7 +126,7 @@ export function Agents({ request }: { request: AgentRequest }) {
                     <span
                       key={run}
                       aria-hidden
-                      className="absolute inset-x-0 -top-px h-px origin-left bg-ink"
+                      className="absolute inset-x-0 -top-px h-px origin-left bg-accent-deep"
                       style={{
                         animation: `marquee-progress ${duration}ms linear both`,
                         animationPlayState: playing ? "running" : "paused",
@@ -142,7 +142,7 @@ export function Agents({ request }: { request: AgentRequest }) {
                   >
                     <span
                       className={`pt-1.5 tabular text-[0.78rem] transition-colors duration-300 ${
-                        selected ? "text-ink" : "text-muted"
+                        selected ? "text-accent-deep" : "text-muted"
                       }`}
                     >
                       {a.index}

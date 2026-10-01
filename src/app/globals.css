@@ -2,7 +2,8 @@
 @import "lenis/dist/lenis.css";
 
 /* ------------------------------------------------------------------
-   Asventia tokens. Paper and ink from the brand deck; black and white, no accent colour.
+   Asventia tokens. Paper and ink from the brand deck, plus one cool accent
+   taken from the hero footage's holographic lines. Used sparingly.
    ------------------------------------------------------------------ */
 @theme {
   --color-paper: #f4f3ef;
@@ -16,6 +17,9 @@
   --color-body: #454b55;
   --color-muted: #5f6570;
   --color-sand: #c3bdb1;
+  /* accent on ink (8:1) / accent-deep on paper (5:1); never orange */
+  --color-accent: #6fb6e0;
+  --color-accent-deep: #2a6a96;
 
   --text-hero: min(clamp(2.3rem, 0.75rem + 4.75vw, 6.6rem), 9.2svh);
   --text-hero--line-height: 1;
@@ -60,12 +64,12 @@
   }
 
   ::selection {
-    background: var(--color-ink);
+    background: var(--color-accent-deep);
     color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid currentColor;
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
   }
 
@@ -146,11 +150,11 @@
   }
   .range::-webkit-slider-runnable-track {
     height: 2px;
-    background: linear-gradient(to right, #fff var(--fill), rgb(255 255 255 / 0.16) var(--fill));
+    background: linear-gradient(to right, var(--color-accent) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
   }
   .range::-moz-range-track {
     height: 2px;
-    background: linear-gradient(to right, #fff var(--fill), rgb(255 255 255 / 0.16) var(--fill));
+    background: linear-gradient(to right, var(--color-accent) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
   }
   .range::-webkit-slider-thumb {
     appearance: none;
@@ -169,7 +173,7 @@
     background: #fff;
   }
   .range:active::-webkit-slider-thumb {
-    background: var(--color-sand);
+    background: var(--color-accent);
   }
   .range:focus-visible {
     outline-offset: 6px;

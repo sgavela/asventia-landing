@@ -82,7 +82,7 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
               <span key={i} className="flex h-full flex-1" style={{ transform: `scaleY(${b.hi})`}}>
                 <span
                   className={`h-full w-full origin-center transition-colors duration-300 ${
-                    speaker === "agent" ? "bg-white" : speaker === "caller" ? "bg-white/45" : "bg-white/15"
+                    speaker === "agent" ? "bg-accent" : speaker === "caller" ? "bg-white/80" : "bg-white/20"
                   }`}
                   style={
                     {
@@ -159,7 +159,7 @@ function Line({ show, who, children }: { show: boolean; who: "agent" | "caller";
     <Appear show={show} y={5} className="flex gap-2.5">
       <span className="mt-0.5 grid size-4 shrink-0 place-items-center">
         {who === "agent" ? (
-          <Mark className="h-2.5 w-auto text-white" />
+          <Mark className="h-2.5 w-auto text-accent" />
         ) : (
           <span className="size-1.5 bg-white/50" />
         )}

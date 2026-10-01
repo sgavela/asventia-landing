@@ -34,7 +34,7 @@ export function Contact() {
           sizes="100vw"
           quality={70}
           placeholder="blur"
-          className="object-cover object-[72%_50%] grayscale"
+          className="object-cover object-[72%_50%]"
         />
       </m.div>
       <div

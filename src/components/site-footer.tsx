@@ -46,7 +46,7 @@ export function SiteFooter() {
               </li>
               <li className="text-white/50">{site.location}</li>
               <li className="pt-2">
-                <a href={bookingHref} className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-white/70">
+                <a href={bookingHref} className="inline-flex items-center gap-1.5 text-accent transition-colors hover:text-white">
                   Book a 30-minute call <ArrowUpRight className="size-3.5" />
                 </a>
               </li>

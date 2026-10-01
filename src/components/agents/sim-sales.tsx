@@ -77,7 +77,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
             </span>
           </Appear>
           <Appear show={step === S.typing3} className="self-end">
-            <span className="inline-flex bg-white/80 px-3.5 py-3 text-ink/80">
+            <span className="inline-flex bg-accent/80 px-3.5 py-3 text-ink/80">
               <TypingDots />
             </span>
           </Appear>
@@ -174,7 +174,7 @@ function Bubble({ side, time, children }: { side: "in" | "out"; time: string; ch
   return (
     <div
       className={`px-3.5 py-2.5 text-[0.84rem] leading-snug ${
-        out ? "bg-white text-ink" : "bg-white/8 text-white/90"
+        out ? "bg-accent text-ink" : "bg-white/8 text-white/90"
       }`}
     >
       {out && (

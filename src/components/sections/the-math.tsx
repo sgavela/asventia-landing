@@ -125,7 +125,7 @@ export function TheMath() {
                 </div>
                 <div className="py-3.5">
                   <dt className="text-[0.82rem] text-white/60">Full-time people</dt>
-                  <dd className="tabular mt-1 font-display text-[1.4rem] font-semibold text-white">
+                  <dd className="tabular mt-1 font-display text-[1.4rem] font-semibold text-accent">
                     <Counter value={people} format={(v) => fmt1.format(v)} />
                   </dd>
                 </div>

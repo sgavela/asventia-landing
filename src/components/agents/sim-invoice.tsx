@@ -103,7 +103,7 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
           {/* scan beam */}
           {step === S.scan && (
             <div className="pointer-events-none absolute inset-0 [animation:scan_1.5s_var(--ease-in-out-quart)_both]">
-              <div className="h-px w-full bg-white shadow-[0_0_18px_4px_rgba(255,255,255,0.35)]" />
+              <div className="h-px w-full bg-accent shadow-[0_0_18px_4px_rgba(111,182,224,0.45)]" />
             </div>
           )}
         </div>
@@ -138,7 +138,7 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
           <div className="mt-2 space-y-1 tabular text-[0.72rem]">
             {JOURNAL.map((j) => (
               <div key={j.acct} className="grid grid-cols-[2.2rem_minmax(0,1fr)_4.2rem_4.2rem] gap-2">
-                <span className="font-medium text-white">{j.acct}</span>
+                <span className="text-accent">{j.acct}</span>
                 <span className="truncate text-white/70">{j.name}</span>
                 <span className="tabular text-right text-white/85">{j.dr}</span>
                 <span className="tabular text-right text-white/85">{j.cr}</span>
@@ -174,9 +174,9 @@ function Zone({
     <div
       className={`relative -m-1 p-1 transition-[box-shadow,background-color] duration-500 ${
         active
-          ? "bg-ink/5 shadow-[inset_0_0_0_1.5px_var(--color-ink)]"
+          ? "bg-accent-deep/8 shadow-[inset_0_0_0_1.5px_var(--color-accent-deep)]"
           : seen
-            ? "shadow-[inset_0_0_0_1px_rgba(21,22,26,0.25)]"
+            ? "shadow-[inset_0_0_0_1px_rgba(42,106,150,0.3)]"
             : ""
       } ${className}`}
     >

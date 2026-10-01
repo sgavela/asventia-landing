@@ -46,7 +46,7 @@ export function TailoredSim({ playing, instant, onDone }: SimProps) {
             <Appear key={p.name} show={at(S.rows + i)} y={6}>
               <div
                 className={`grid grid-cols-[minmax(0,1fr)_3.5rem_4.5rem] items-center gap-3 border-t border-white/8 px-2 py-2.5 transition-colors duration-500 sm:grid-cols-[minmax(0,1.3fr)_3.5rem_minmax(0,1fr)_4.5rem] ${
-                  picked ? "-mx-2 bg-white/10 px-4" : "-mx-2"
+                  picked ? "-mx-2 bg-accent/12 px-4" : "-mx-2"
                 }`}
               >
                 <span className={`truncate text-[0.84rem] ${picked ? "text-white" : "text-white/80"}`}>{p.name}</span>
@@ -54,7 +54,7 @@ export function TailoredSim({ playing, instant, onDone }: SimProps) {
                 <span className="hidden h-1.5 overflow-hidden bg-white/8 sm:block">
                   <span
                     className={`block h-full origin-left transition-transform duration-1000 ease-out-expo ${
-                      picked ? "bg-white" : "bg-white/35"
+                      picked ? "bg-accent" : "bg-white/55"
                     }`}
                     style={{ transform: `scaleX(${at(S.rows + i) ? p.hours / MAX : 0})`}}
                   />
@@ -78,7 +78,7 @@ export function TailoredSim({ playing, instant, onDone }: SimProps) {
         <Appear show={at(S.plan)} className="bg-white/6 p-4">
           <PanelLabel>Recommended first agent</PanelLabel>
           <p className="mt-1.5 flex items-center gap-2 text-[1rem] font-medium">
-            Order intake <ArrowRight className="size-4 text-white" /> pilot in 4 weeks
+            Order intake <ArrowRight className="size-4 text-accent" /> pilot in 4 weeks
           </p>
           <p className="mt-1 text-[0.8rem] leading-snug text-white/55">
             Target: ≥95% of orders read correctly, about 1,800 hours a year back to the sales team.
