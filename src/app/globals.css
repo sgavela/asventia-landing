@@ -2,7 +2,7 @@
 @import "lenis/dist/lenis.css";
 
 /* ------------------------------------------------------------------
-   Asventia tokens. Paper and ink from the brand deck, one bright signal accent.
+   Asventia tokens. Paper and ink from the brand deck; black and white, no accent colour.
    ------------------------------------------------------------------ */
 @theme {
   --color-paper: #f4f3ef;
@@ -15,10 +15,6 @@
   --color-ink-3: #24262c;
   --color-body: #454b55;
   --color-muted: #5f6570;
-  /* Single accent. Fills, rules and marks only; never body text on paper (3:1). */
-  --color-signal: #ff5a1f;
-  --color-sage: #287050;
-  --color-sage-bright: #62c293;
   --color-sand: #c3bdb1;
 
   --text-hero: min(clamp(2.3rem, 0.75rem + 4.75vw, 6.6rem), 9.2svh);
@@ -43,7 +39,6 @@
 @theme inline {
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
 }
 
 /* ------------------------------------------------------------------
@@ -65,12 +60,12 @@
   }
 
   ::selection {
-    background: var(--color-signal);
-    color: var(--color-ink);
+    background: var(--color-ink);
+    color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-signal);
+    outline: 2px solid currentColor;
     outline-offset: 3px;
   }
 
@@ -122,12 +117,14 @@
     background: currentColor;
   }
 
-  .mono-label {
-    font-family: var(--font-mono);
+  /* Small uppercase data label, in the body sans. */
+  .label {
+    font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
   }
 
   .tabular {
@@ -149,11 +146,11 @@
   }
   .range::-webkit-slider-runnable-track {
     height: 2px;
-    background: linear-gradient(to right, var(--color-signal) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
+    background: linear-gradient(to right, #fff var(--fill), rgb(255 255 255 / 0.16) var(--fill));
   }
   .range::-moz-range-track {
     height: 2px;
-    background: linear-gradient(to right, var(--color-signal) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
+    background: linear-gradient(to right, #fff var(--fill), rgb(255 255 255 / 0.16) var(--fill));
   }
   .range::-webkit-slider-thumb {
     appearance: none;
@@ -172,7 +169,7 @@
     background: #fff;
   }
   .range:active::-webkit-slider-thumb {
-    background: var(--color-signal);
+    background: var(--color-sand);
   }
   .range:focus-visible {
     outline-offset: 6px;
@@ -358,22 +355,6 @@
   }
   to {
     transform: scaleY(1);
-  }
-}
-
-/* Hero: a hairline sweeps down the footage, like a scanner pass. */
-@keyframes sweep {
-  0% {
-    transform: translate3d(0, -10vh, 0);
-    opacity: 0;
-  }
-  8%,
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(0, 110vh, 0);
-    opacity: 0;
   }
 }
 

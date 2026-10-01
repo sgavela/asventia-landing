@@ -81,13 +81,13 @@ export function Rollout() {
           <m.div
             aria-hidden
             style={{ scaleX: fill }}
-            className="absolute top-[0.44rem] left-0 hidden h-px w-full origin-left bg-signal md:block"
+            className="absolute top-[0.44rem] left-0 hidden h-px w-full origin-left bg-ink md:block"
           />
           <div aria-hidden className="absolute top-0 bottom-0 left-[0.44rem] w-px bg-line-strong md:hidden" />
           <m.div
             aria-hidden
             style={{ scaleY: fill }}
-            className="absolute top-0 bottom-0 left-[0.44rem] w-px origin-top bg-signal md:hidden"
+            className="absolute top-0 bottom-0 left-[0.44rem] w-px origin-top bg-ink md:hidden"
           />
 
           <ol className="relative grid gap-10 md:grid-cols-4 md:gap-6">
@@ -98,20 +98,20 @@ export function Rollout() {
                   <span
                     aria-hidden
                     className={`absolute top-0 left-0 grid size-[0.9rem] place-items-center transition-colors duration-500 ${
-                      on ? "bg-signal" : "bg-stone ring-1 ring-line-strong ring-inset"
+                      on ? "bg-ink" : "bg-stone ring-1 ring-line-strong ring-inset"
                     }`}
                   >
-                    <span className={`size-1.5 ${on ? "bg-ink" : "bg-transparent"}`} />
+                    <span className={`size-1.5 ${on ? "bg-white" : "bg-transparent"}`} />
                   </span>
                   <div className="md:pt-10">
-                    <p className={`mono-label transition-colors duration-500 ${on ? "text-ink" : "text-muted"}`}>
+                    <p className={`label transition-colors duration-500 ${on ? "text-ink" : "text-muted"}`}>
                       Phase {i + 1} · {p.when}
                     </p>
                     <h3 className="mt-3 font-display text-[1.25rem] leading-snug font-semibold tracking-[-0.012em] text-ink">
                       {p.title}
                     </h3>
                     <p className="mt-2.5 max-w-[22rem] text-[0.95rem] leading-relaxed text-body">{p.body}</p>
-                    {p.note && <p className="mono-label mt-4 text-ink">{p.note}</p>}
+                    {p.note && <p className="label mt-4 text-ink">{p.note}</p>}
                   </div>
                 </li>
               );

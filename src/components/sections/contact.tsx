@@ -34,7 +34,7 @@ export function Contact() {
           sizes="100vw"
           quality={70}
           placeholder="blur"
-          className="object-cover object-[72%_50%]"
+          className="object-cover object-[72%_50%] grayscale"
         />
       </m.div>
       <div
@@ -60,12 +60,12 @@ export function Contact() {
 
         <Reveal delay={0.16} className="mt-10">
           <fieldset>
-            <legend className="mono-label text-white/50">What would you hand over first?</legend>
+            <legend className="label text-white/50">What would you hand over first?</legend>
             <div className="mt-3 flex flex-wrap gap-2">
               {FIRST_PROCESS.map((p) => (
                 <label
                   key={p}
-                  className={`cursor-pointer px-4 py-2 text-[0.9rem] transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-signal ${
+                  className={`cursor-pointer px-4 py-2 text-[0.9rem] transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-white ${
                     choice === p ? "bg-white text-ink" : "text-white/80 ring-1 ring-white/25 ring-inset hover:ring-white/50"
                   }`}
                 >
@@ -91,7 +91,7 @@ export function Contact() {
           />
           <p className="mt-2 text-[0.9rem] text-white/55">
             Prefer to write?{" "}
-            <TextLink href={`mailto:${site.email}`} className="font-mono text-white/80 hover:text-white">
+            <TextLink href={`mailto:${site.email}`} className="tabular text-white/80 hover:text-white">
               {site.email}
             </TextLink>
           </p>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -14,15 +14,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains",
-  display: "swap",
-  // only used for small labels; keep it off the critical path
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -52,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} ${jetbrains.variable} antialiased`}
+      className={`${poppins.variable} ${inter.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

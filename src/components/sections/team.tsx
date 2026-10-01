@@ -28,24 +28,6 @@ const FOUNDERS: {
   },
 ];
 
-const EXPERIENCE = [
-  "Santander",
-  "BBVA",
-  "Unicaja",
-  "Abanca",
-  "CaixaBank",
-  "Deutsche Bank",
-  "Standard Chartered",
-  "Mapfre",
-  "Santalucía",
-  "Mutua Madrileña",
-  "Repsol",
-  "Telefónica",
-  "Tendam",
-  "TUI",
-  "HM Government",
-];
-
 export function Team() {
   return (
     <section id="team" data-nav="light" aria-labelledby="team-title" className="bg-paper py-28 md:py-40">
@@ -87,25 +69,6 @@ export function Team() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-24 md:mt-32">
-          <div className="flex flex-col gap-2 border-b border-line-strong pb-5 md:flex-row md:items-baseline md:justify-between">
-            <h3 className="max-w-[36rem] font-display text-[1.15rem] font-semibold tracking-[-0.01em] text-ink md:text-[1.3rem]">
-              Where our team designed and delivered AI strategy and implementation before Asventia
-            </h3>
-            <p className="mono-label text-muted">Prior professional experience</p>
-          </div>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {EXPERIENCE.map((name) => (
-              <li
-                key={name}
-                className="border-b border-line py-5 pr-4 font-display text-[1.02rem] font-medium tracking-[-0.01em] text-ink/65 transition-colors duration-300 hover:text-ink md:text-[1.2rem]"
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );

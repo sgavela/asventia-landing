@@ -18,14 +18,14 @@ export function SiteFooter() {
       <div className="shell pt-20 pb-8 md:pt-28">
         <div className="grid gap-12 border-t border-white/10 pt-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="mono-label text-white/55">{site.tagline}</p>
+            <p className="label text-white/55">{site.tagline}</p>
             <p className="mt-4 max-w-[24rem] text-[0.98rem] leading-relaxed text-white/65">
               AI agents that run operational processes for mid-sized companies. Designed, built and operated from
               Madrid.
             </p>
           </div>
           <nav aria-label="Footer" className="md:col-span-3 md:col-start-7">
-            <p className="mono-label text-white/55">Site</p>
+            <p className="label text-white/55">Site</p>
             <ul className="mt-4 space-y-2">
               {LINKS.map((l) => (
                 <li key={l.href}>
@@ -37,7 +37,7 @@ export function SiteFooter() {
             </ul>
           </nav>
           <div className="md:col-span-3">
-            <p className="mono-label text-white/55">Contact</p>
+            <p className="label text-white/55">Contact</p>
             <ul className="mt-4 space-y-2 text-[0.95rem]">
               <li>
                 <a href={`mailto:${site.email}`} className="text-white/75 transition-colors hover:text-white">
@@ -46,7 +46,7 @@ export function SiteFooter() {
               </li>
               <li className="text-white/50">{site.location}</li>
               <li className="pt-2">
-                <a href={bookingHref} className="inline-flex items-center gap-1.5 text-signal transition-colors hover:text-white">
+                <a href={bookingHref} className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-white/70">
                   Book a 30-minute call <ArrowUpRight className="size-3.5" />
                 </a>
               </li>

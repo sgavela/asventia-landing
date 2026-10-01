@@ -6,16 +6,17 @@ import { ArrowRight } from "./icons";
 type Variant = "light" | "dark";
 
 const styles: Record<Variant, string> = {
-  light: "bg-white text-ink",
-  dark: "bg-ink text-white hover:text-ink",
+  light: "border-white bg-white text-ink before:bg-ink hover:text-white focus-visible:text-white",
+  dark: "border-ink bg-ink text-white before:bg-white hover:text-ink focus-visible:text-ink",
 };
 
 /**
- * Square button. On hover a signal-coloured fill wipes in from the left and
- * the arrow slides through; shared by links and the email form's submit.
+ * Square button. On hover the inverse colour wipes in from the left (the
+ * border keeps the edge visible) and the arrow slides through; shared by
+ * links and the email form's submit.
  */
 export function buttonClass(variant: Variant = "light", className = "") {
-  return `group relative isolate inline-flex h-12 items-center justify-center gap-3 overflow-hidden px-6 text-[0.95rem] font-medium whitespace-nowrap transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-signal before:transition-transform before:duration-500 before:ease-out-expo hover:before:scale-x-100 focus-visible:before:scale-x-100 disabled:cursor-wait ${styles[variant]} ${className}`;
+  return `group relative isolate inline-flex h-12 items-center justify-center gap-3 overflow-hidden border px-6 text-[0.95rem] font-medium whitespace-nowrap transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:transition-transform before:duration-500 before:ease-out-expo hover:before:scale-x-100 focus-visible:before:scale-x-100 disabled:cursor-wait ${styles[variant]} ${className}`;
 }
 
 export function ButtonArrow({ icon }: { icon?: ReactNode }) {

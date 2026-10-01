@@ -53,7 +53,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
           </span>
           <div className="min-w-0">
             <p className="truncate text-[0.88rem] font-medium">Bar Casa Paco</p>
-            <p className="flex items-center gap-1.5 font-mono text-[0.68rem] text-white/55">
+            <p className="flex items-center gap-1.5 tabular text-[0.68rem] text-white/55">
               <Chat className="size-3" /> WhatsApp · +34 6•• ••• 412
             </p>
           </div>
@@ -77,7 +77,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
             </span>
           </Appear>
           <Appear show={step === S.typing3} className="self-end">
-            <span className="inline-flex bg-signal/80 px-3.5 py-3 text-ink/80">
+            <span className="inline-flex bg-white/80 px-3.5 py-3 text-ink/80">
               <TypingDots />
             </span>
           </Appear>
@@ -98,7 +98,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
             <p className="mt-1 text-[0.95rem] font-medium">Bar Casa Paco · C-0412</p>
           </div>
           <Appear show={at(S.checks + 1)} y={4}>
-            <Chip tone="signal">Tariff T3</Chip>
+            <Chip tone="outline">Tariff T3</Chip>
           </Appear>
         </div>
 
@@ -112,7 +112,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
 
         <div className="mt-4 border-t border-white/10 pt-2">
           {!at(S.lines) && (
-            <p className="py-6 text-center font-mono text-[0.72rem] text-white/55">
+            <p className="py-6 text-center tabular text-[0.72rem] text-white/55">
               {at(S.msg2) ? "Reading the conversation…" : "Waiting for messages"}
             </p>
           )}
@@ -121,19 +121,19 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
               <div className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-baseline gap-3 border-b border-white/6 py-[0.45rem] text-[0.82rem]">
                 <span className="flex min-w-0 items-center gap-2">
                   <span className="truncate text-white/85">{l.item}</span>
-                  {l.promo && <Chip tone="signal">Promo</Chip>}
+                  {l.promo && <Chip tone="outline">Promo</Chip>}
                 </span>
-                <span className="tabular font-mono text-[0.74rem] text-white/55">
+                <span className="tabular text-[0.74rem] text-white/55">
                   {l.qty} × {l.price}
                 </span>
-                <span className="tabular w-16 text-right font-mono text-[0.78rem] text-white/85">{l.total}</span>
+                <span className="tabular w-16 text-right text-[0.78rem] text-white/85">{l.total}</span>
               </div>
             </Appear>
           ))}
           <Appear show={at(S.total)} y={6}>
             <div className="grid grid-cols-[1fr_auto] py-[0.45rem] text-[0.8rem] text-white/55">
               <span>+ 7 more lines from the usual order</span>
-              <span className="tabular w-16 text-right font-mono text-[0.78rem]">883.10</span>
+              <span className="tabular w-16 text-right text-[0.78rem]">883.10</span>
             </div>
           </Appear>
         </div>
@@ -158,7 +158,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
               </span>
             </Appear>
             <Appear show={at(S.erp)} y={4} className="ml-auto">
-              <Chip tone="sage">
+              <Chip tone="strong">
                 <Check className="size-3" strokeWidth={2.5} /> In ERP · #48213
               </Chip>
             </Appear>
@@ -174,16 +174,16 @@ function Bubble({ side, time, children }: { side: "in" | "out"; time: string; ch
   return (
     <div
       className={`px-3.5 py-2.5 text-[0.84rem] leading-snug ${
-        out ? "bg-signal text-ink" : "bg-white/8 text-white/90"
+        out ? "bg-white text-ink" : "bg-white/8 text-white/90"
       }`}
     >
       {out && (
-        <span className="mb-1 flex items-center gap-1.5 font-mono text-[0.62rem] tracking-wide text-white/65 uppercase">
+        <span className="mb-1 flex items-center gap-1.5 tabular text-[0.62rem] tracking-wide text-white/65 uppercase">
           <Mark className="h-2 w-auto" /> Asventia agent
         </span>
       )}
       {children}
-      <span className={`mt-1 block text-right font-mono text-[0.6rem] ${out ? "text-white/60" : "text-white/55"}`}>
+      <span className={`mt-1 block text-right tabular text-[0.6rem] ${out ? "text-white/60" : "text-white/55"}`}>
         {time}
       </span>
     </div>

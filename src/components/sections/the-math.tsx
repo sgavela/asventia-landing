@@ -58,13 +58,13 @@ export function TheMath() {
             <div aria-hidden className="grain pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay" />
             <div className="relative">
               <div className="flex flex-wrap items-center justify-between gap-4">
-                <p className="mono-label text-white/55">The count</p>
+                <p className="label text-white/55">The count</p>
                 <fieldset className="flex flex-wrap gap-1.5">
                   <legend className="sr-only">What to count</legend>
                   {(Object.keys(UNITS) as Unit[]).map((k) => (
                     <label
                       key={k}
-                      className={`cursor-pointer px-3 py-1.5 text-[0.8rem] transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-signal ${
+                      className={`cursor-pointer px-3 py-1.5 text-[0.8rem] transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-white ${
                         unit === k ? "bg-white text-ink" : "text-white/65 ring-1 ring-white/15 ring-inset hover:text-white"
                       }`}
                     >
@@ -125,12 +125,12 @@ export function TheMath() {
                 </div>
                 <div className="py-3.5">
                   <dt className="text-[0.82rem] text-white/60">Full-time people</dt>
-                  <dd className="tabular mt-1 font-display text-[1.4rem] font-semibold text-signal">
+                  <dd className="tabular mt-1 font-display text-[1.4rem] font-semibold text-white">
                     <Counter value={people} format={(v) => fmt1.format(v)} />
                   </dd>
                 </div>
               </dl>
-              <p className="mt-4 font-mono text-[0.68rem] leading-relaxed text-white/55">
+              <p className="mt-4 tabular text-[0.68rem] leading-relaxed text-white/55">
                 {fmt.format(perYear)} {u.many} × {minutes} min ÷ 60 · 8 h days · {fmt.format(HOURS_PER_FTE)} h per
                 full-time year
               </p>
@@ -167,7 +167,7 @@ function Slider({
         <label htmlFor={id} className="text-[0.92rem] text-white/75">
           {label}
         </label>
-        <span className="tabular font-mono text-[0.95rem] text-white">{display}</span>
+        <span className="tabular text-[0.95rem] text-white">{display}</span>
       </div>
       <input
         id={id}

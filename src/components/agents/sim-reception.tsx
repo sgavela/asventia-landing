@@ -54,13 +54,13 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
             )}
           </div>
           <div className="min-w-0">
-            <p className="mono-label text-white/55">
+            <p className="label text-white/55">
               {!at(S.answered) ? "Incoming call" : at(S.ended) ? "Call ended" : "Connected · AI receptionist"}
             </p>
             <p className="mt-1 truncate text-[1.05rem] font-medium">Hostelería Ruiz</p>
-            <p className="font-mono text-[0.7rem] text-white/55">+34 6•• ••• 218</p>
+            <p className="tabular text-[0.7rem] text-white/55">+34 6•• ••• 218</p>
           </div>
-          <p className="tabular ml-auto font-mono text-[1rem] text-white/80 sm:ml-0 sm:text-[1.6rem]">{clock}</p>
+          <p className="tabular ml-auto text-[1rem] text-white/80 sm:ml-0 sm:text-[1.6rem]">{clock}</p>
         </div>
 
         <Appear show={at(S.answered)} className="hidden space-y-1.5 border-t border-white/10 pt-4 sm:block">
@@ -82,7 +82,7 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
               <span key={i} className="flex h-full flex-1" style={{ transform: `scaleY(${b.hi})`}}>
                 <span
                   className={`h-full w-full origin-center transition-colors duration-300 ${
-                    speaker === "agent" ? "bg-signal" : speaker === "caller" ? "bg-white/80" : "bg-white/20"
+                    speaker === "agent" ? "bg-white" : speaker === "caller" ? "bg-white/45" : "bg-white/15"
                   }`}
                   style={
                     {
@@ -94,7 +94,7 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
               </span>
             ))}
           </div>
-          <p className="mono-label mt-2 hidden text-white/55 sm:block">
+          <p className="label mt-2 hidden text-white/55 sm:block">
             {speaker === "agent"
               ? "Agent speaking"
               : speaker === "caller"
@@ -133,7 +133,7 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
         <Appear show={at(S.summary)} className="mt-auto bg-white/6 p-3.5">
           <div className="flex items-center justify-between">
             <PanelLabel>Call summary</PanelLabel>
-            <span className="tabular font-mono text-[0.7rem] text-white/55">{clock}</span>
+            <span className="tabular text-[0.7rem] text-white/55">{clock}</span>
           </div>
           <dl className="mt-2 grid grid-cols-[4.8rem_1fr] gap-y-1 text-[0.78rem]">
             <dt className="text-white/55">Intent</dt>
@@ -144,7 +144,7 @@ export function ReceptionSim({ playing, instant, onDone }: SimProps) {
             <dd className="text-white/85">Approval of the order change</dd>
           </dl>
           <div className="mt-3">
-            <Chip tone="sage">
+            <Chip tone="strong">
               <Check className="size-3" strokeWidth={2.5} /> Logged in CRM
             </Chip>
           </div>
@@ -159,7 +159,7 @@ function Line({ show, who, children }: { show: boolean; who: "agent" | "caller";
     <Appear show={show} y={5} className="flex gap-2.5">
       <span className="mt-0.5 grid size-4 shrink-0 place-items-center">
         {who === "agent" ? (
-          <Mark className="h-2.5 w-auto text-signal" />
+          <Mark className="h-2.5 w-auto text-white" />
         ) : (
           <span className="size-1.5 bg-white/50" />
         )}

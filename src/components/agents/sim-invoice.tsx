@@ -47,7 +47,7 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
     <div className="grid h-full grid-rows-[13rem_1fr] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:grid-rows-1">
       {/* ---------------- the document as it arrived ---------------- */}
       <div className="relative flex min-h-0 items-start justify-center overflow-hidden border-b border-white/10 bg-ink-2 px-5 pt-5 sm:items-center sm:border-r sm:border-b-0 sm:py-6">
-        <p className="mono-label absolute top-3 left-5 hidden text-white/55 sm:block">Inbox · facturas@</p>
+        <p className="label absolute top-3 left-5 hidden text-white/55 sm:block">Inbox · facturas@</p>
         <div className="relative w-full max-w-[22rem] origin-top scale-[0.92] bg-[#fbfaf6] p-4 font-sans text-[0.6rem] leading-[1.5] text-[#2b2d33] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.9)] sm:scale-100 sm:p-5 sm:text-[0.66rem]">
           <div className="flex justify-between gap-3">
             <Zone active={focus(S.supplier)} seen={at(S.supplier)}>
@@ -103,7 +103,7 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
           {/* scan beam */}
           {step === S.scan && (
             <div className="pointer-events-none absolute inset-0 [animation:scan_1.5s_var(--ease-in-out-quart)_both]">
-              <div className="h-px w-full bg-signal shadow-[0_0_18px_4px_rgba(255,90,31,0.45)]" />
+              <div className="h-px w-full bg-white shadow-[0_0_18px_4px_rgba(255,255,255,0.35)]" />
             </div>
           )}
         </div>
@@ -135,10 +135,10 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
 
         <Appear show={at(S.journal)} className="border-t border-white/10 pt-3.5">
           <PanelLabel>Journal entry</PanelLabel>
-          <div className="mt-2 space-y-1 font-mono text-[0.72rem]">
+          <div className="mt-2 space-y-1 tabular text-[0.72rem]">
             {JOURNAL.map((j) => (
               <div key={j.acct} className="grid grid-cols-[2.2rem_minmax(0,1fr)_4.2rem_4.2rem] gap-2">
-                <span className="text-signal">{j.acct}</span>
+                <span className="font-medium text-white">{j.acct}</span>
                 <span className="truncate text-white/70">{j.name}</span>
                 <span className="tabular text-right text-white/85">{j.dr}</span>
                 <span className="tabular text-right text-white/85">{j.cr}</span>
@@ -149,7 +149,7 @@ export function InvoiceSim({ playing, instant, onDone }: SimProps) {
 
         <div className="mt-auto min-h-7">
           <Appear show={at(S.posted)} y={4}>
-            <Chip tone="sage">
+            <Chip tone="strong">
               <Check className="size-3" strokeWidth={2.5} /> Posted · ERP and accounting
             </Chip>
           </Appear>
@@ -174,9 +174,9 @@ function Zone({
     <div
       className={`relative -m-1 p-1 transition-[box-shadow,background-color] duration-500 ${
         active
-          ? "bg-signal/10 shadow-[inset_0_0_0_1.5px_var(--color-signal)]"
+          ? "bg-ink/5 shadow-[inset_0_0_0_1.5px_var(--color-ink)]"
           : seen
-            ? "shadow-[inset_0_0_0_1px_rgba(174,56,24,0.3)]"
+            ? "shadow-[inset_0_0_0_1px_rgba(21,22,26,0.25)]"
             : ""
       } ${className}`}
     >

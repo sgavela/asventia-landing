@@ -75,7 +75,7 @@ export function EmailCapture({ source, note, cta = "Book a demo", className = ""
           {/* Focus line draws across the bottom edge */}
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-signal transition-transform duration-500 ease-out-expo group-focus-within/field:scale-x-100"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-white transition-transform duration-500 ease-out-expo group-focus-within/field:scale-x-100"
           />
         </div>
         <button
@@ -87,7 +87,7 @@ export function EmailCapture({ source, note, cta = "Book a demo", className = ""
           <ButtonArrow />
         </button>
       </form>
-      <p aria-live="polite" className="mt-3 min-h-5 font-mono text-[0.72rem] text-white/60">
+      <p aria-live="polite" className="mt-3 min-h-5 tabular text-[0.72rem] text-white/60">
         {message}
       </p>
     </div>

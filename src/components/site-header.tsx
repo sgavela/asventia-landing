@@ -165,7 +165,7 @@ export function SiteHeader() {
             >
               Book a 30-minute call <ArrowRight className="size-4" />
             </a>
-            <p className="font-mono text-sm text-white/55">
+            <p className="tabular text-sm text-white/55">
               {site.email} · {site.location}
             </p>
           </div>

@@ -72,13 +72,13 @@ export function Agents({ request }: { request: AgentRequest }) {
     >
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
         <div className="flex items-center gap-2.5">
-          <span className="grid size-6 place-items-center bg-signal">
+          <span className="grid size-6 place-items-center bg-white">
             <Mark className="h-2.5 w-auto text-ink" />
           </span>
-          <span className="mono-label text-white/70">{agent.name}</span>
+          <span className="label text-white/70">{agent.name}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="mono-label hidden text-white/55 sm:inline">Example run</span>
+          <span className="label hidden text-white/55 sm:inline">Example run</span>
           <button
             type="button"
             onClick={() => {
@@ -126,7 +126,7 @@ export function Agents({ request }: { request: AgentRequest }) {
                     <span
                       key={run}
                       aria-hidden
-                      className="absolute inset-x-0 -top-px h-px origin-left bg-signal"
+                      className="absolute inset-x-0 -top-px h-px origin-left bg-ink"
                       style={{
                         animation: `marquee-progress ${duration}ms linear both`,
                         animationPlayState: playing ? "running" : "paused",
@@ -141,7 +141,7 @@ export function Agents({ request }: { request: AgentRequest }) {
                     className="group grid w-full grid-cols-[3rem_1fr] py-6 text-left"
                   >
                     <span
-                      className={`pt-1.5 font-mono text-[0.78rem] transition-colors duration-300 ${
+                      className={`pt-1.5 tabular text-[0.78rem] transition-colors duration-300 ${
                         selected ? "text-ink" : "text-muted"
                       }`}
                     >
@@ -169,7 +169,7 @@ export function Agents({ request }: { request: AgentRequest }) {
                         <p className="max-w-[34rem] text-[0.97rem] leading-relaxed text-body">{a.body}</p>
                         <ul className="mt-4 flex flex-wrap gap-2" aria-label="Works with">
                           {a.touches.map((t) => (
-                            <li key={t} className="mono-label bg-stone px-2 py-1 text-muted">
+                            <li key={t} className="label bg-stone px-2 py-1 text-muted">
                               {t}
                             </li>
                           ))}

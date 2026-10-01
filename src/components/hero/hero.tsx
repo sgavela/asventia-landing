@@ -69,7 +69,7 @@ export function Hero({ onSelectAgent }: { onSelectAgent: (id: AgentId) => void }
         {/* ---------------- footage ---------------- */}
         <m.div style={{ y: mediaY }} className="absolute inset-0">
           <m.div style={{ x: sx, y: sy }} className="absolute inset-0">
-            <div className="intro-settle absolute inset-0 origin-[60%_45%]">
+            <div className="intro-settle absolute inset-0 origin-[60%_45%] grayscale">
               <SceneMedia playing={running} />
             </div>
           </m.div>
@@ -89,20 +89,6 @@ export function Hero({ onSelectAgent }: { onSelectAgent: (id: AgentId) => void }
         />
         <div aria-hidden className="grain pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay" />
 
-        {/* Column rules that line up with the agent index, plus a scanner pass */}
-        <div aria-hidden className="intro-fade pointer-events-none absolute inset-0 hidden lg:block" style={{ "--d": "0.9s" } as CSSProperties}>
-          <div className="shell grid h-full grid-cols-4">
-            {AGENTS.map((a) => (
-              <span key={a.id} className="border-l border-white/[0.07] last:border-r" />
-            ))}
-          </div>
-        </div>
-        {running && (
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-signal/70 to-transparent [animation:sweep_7s_var(--ease-in-out-quart)_2s_infinite_both]"
-          />
-        )}
         <div aria-hidden className="intro-curtain pointer-events-none absolute inset-0 bg-ink" />
 
         {/* ---------------- copy ---------------- */}
@@ -119,7 +105,7 @@ export function Hero({ onSelectAgent }: { onSelectAgent: (id: AgentId) => void }
               </span>
               <span className="line-mask">
                 <span className="intro-rise inline-block" style={{ "--d": "0.18s" } as CSSProperties}>
-                  real business operations<span className="text-signal">.</span>
+                  real business operations.
                 </span>
               </span>
             </h1>
@@ -185,7 +171,7 @@ function IndexItem({
       {active && (
         <span
           aria-hidden
-          className="absolute inset-x-0 -top-px h-px origin-left bg-signal"
+          className="absolute inset-x-0 -top-px h-px origin-left bg-white"
           style={{
             animation: `marquee-progress ${CYCLE_MS}ms linear both`,
             animationPlayState: running ? "running" : "paused",
@@ -194,7 +180,7 @@ function IndexItem({
       )}
       <a href="#agents" onClick={onSelect} className="group block py-5 pr-6 xl:pr-10 [@media(max-height:820px)]:py-4">
         <span
-          className={`mono-label transition-colors duration-500 ${active ? "text-signal" : "text-white/50"}`}
+          className={`label transition-colors duration-500 ${active ? "text-white" : "text-white/50"}`}
         >
           {index}
         </span>

@@ -72,7 +72,7 @@ export function CheckLine({
       <span
         className={`mt-0.5 grid size-4 shrink-0 place-items-center transition-colors duration-500 ${
           done
-            ? "bg-sage-bright text-ink"
+            ? "bg-white text-ink"
             : tone === "dark"
               ? "ring-1 ring-white/25 ring-inset"
               : "ring-1 ring-ink/20 ring-inset"
@@ -91,19 +91,19 @@ export function CheckLine({
   );
 }
 
-export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "signal" | "sage" }) {
+export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "strong" | "outline" }) {
   const tones = {
     neutral: "bg-white/8 text-white/70",
-    signal: "bg-signal/15 text-signal",
-    sage: "bg-sage-bright/15 text-sage-bright",
+    strong: "bg-white text-ink",
+    outline: "text-white ring-1 ring-white/40 ring-inset",
   };
   return (
-    <span className={`mono-label inline-flex items-center gap-1.5 px-2 py-1 ${tones[tone]}`}>
+    <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${tones[tone]}`}>
       {children}
     </span>
   );
 }
 
 export function PanelLabel({ children }: { children: ReactNode }) {
-  return <p className="mono-label text-white/55">{children}</p>;
+  return <p className="label text-white/55">{children}</p>;
 }
