@@ -1,20 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { figtree, outfit } from "@brand/lib/fonts";
 import { site } from "@/lib/site";
 import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -35,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#15161a",
+  themeColor: "#0b1b2e",
   colorScheme: "light",
 };
 
@@ -43,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} antialiased`}
+      className={`${outfit.variable} ${figtree.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

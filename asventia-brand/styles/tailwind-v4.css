@@ -1,0 +1,42 @@
+/* Tailwind CSS v4 — import after tokens.css:  @import "tailwindcss"; @import "./tokens.css"; @import "./tailwind-v4.css";
+   Gives you bg-paper, text-ink, bg-inverse, text-accent, border-line, rounded-sm (2px), font-display, etc.
+   Every radius except sm/xs is 0: surfaces are square. For the floating shadow use shadow-[var(--shadow-float)]. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunken: var(--paper-sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-inverse: var(--inverse);
+  --color-on-inverse: var(--on-inverse);
+  --color-on-inverse-muted: var(--on-inverse-muted);
+  --color-line-inverse: var(--line-inverse);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-accent-inverse: var(--accent-inverse);
+  --color-support: var(--support);
+  --color-positive: var(--positive);
+  --color-positive-soft: var(--positive-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-negative: var(--negative);
+  --color-negative-soft: var(--negative-soft);
+  --color-link: var(--link);
+  --font-display: var(--font-outfit, "Outfit"), "Avenir Next", "Century Gothic", system-ui, sans-serif;
+  --font-sans: var(--font-figtree, "Figtree"), "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: var(--font-figtree, "Figtree"), "Helvetica Neue", Arial, sans-serif; /* the brand has no monospace */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+}

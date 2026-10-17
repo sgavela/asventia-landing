@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "estela": "node scripts/build-estela.mjs"
   },
   "dependencies": {
     "lenis": "^1.3.26",

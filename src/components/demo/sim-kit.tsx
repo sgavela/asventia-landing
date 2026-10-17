@@ -82,7 +82,7 @@ export function CheckLine({
       </span>
       <span
         className={`text-[0.84rem] leading-snug transition-colors duration-500 ${
-          tone === "dark" ? (done ? "text-white/90" : "text-white/55") : done ? "text-ink" : "text-muted"
+          tone === "dark" ? (done ? "text-white/90" : "text-white/55") : done ? "text-ink" : "text-ink-muted"
         }`}
       >
         {children}
@@ -95,7 +95,7 @@ export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone
   const tones = {
     neutral: "bg-white/8 text-white/70",
     strong: "bg-white text-ink",
-    outline: "bg-accent/15 text-accent",
+    outline: "text-white ring-1 ring-white/30 ring-inset",
   };
   return (
     <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${tones[tone]}`}>

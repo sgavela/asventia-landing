@@ -27,33 +27,6 @@ export function useSequence(
   return step;
 }
 
-const GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789/#+";
-
-/** Decodes a string left to right with a short trail of random glyphs. */
-export function useScramble(text: string, active: boolean, charsPerFrame = 0.9) {
-  const [out, setOut] = useState(text);
-
-  useEffect(() => {
-    if (!active) return;
-    let raf = 0;
-    let frame = 0;
-    const tick = () => {
-      frame += 1;
-      const revealed = Math.min(text.length, Math.floor(frame * charsPerFrame));
-      let s = text.slice(0, revealed);
-      for (let i = revealed; i < Math.min(text.length, revealed + 5); i++) {
-        s += text[i] === " " ? " " : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
-      }
-      setOut(s);
-      if (revealed < text.length) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [text, active, charsPerFrame]);
-
-  return active ? out : text;
-}
-
 export function useMediaQuery(query: string) {
   return useSyncExternalStore(
     (onChange) => {
@@ -73,14 +46,4 @@ export function useMediaQuery(query: string) {
  */
 export function usePrefersReducedMotion() {
   return useMediaQuery("(prefers-reduced-motion: reduce)");
-}
-
-/** Calls back on an interval while `running` is true. */
-export function useInterval(callback: () => void, ms: number, running: boolean) {
-  const tick = useEffectEvent(callback);
-  useEffect(() => {
-    if (!running) return;
-    const id = window.setInterval(() => tick(), ms);
-    return () => window.clearInterval(id);
-  }, [ms, running]);
 }

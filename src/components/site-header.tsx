@@ -2,15 +2,15 @@
 
 import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
-import { bookingHref, site } from "@/lib/site";
-import { ArrowRight } from "./ui/icons";
+import { site } from "@/lib/site";
 import { Wordmark } from "./ui/logo";
 
+// No button up here: the demo button lives in the hero, mid-page and the final section only.
 const LINKS = [
-  { href: "#agents", label: "Agents" },
-  { href: "#the-math", label: "The math" },
-  { href: "#rollout", label: "Rollout" },
-  { href: "#team", label: "Team" },
+  { href: "#how", label: "How it works" },
+  { href: "#clients", label: "Clients" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 type Theme = "dark" | "light";
@@ -60,21 +60,23 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* data-tone (not data-nav, which the observer above watches) sets the focus ring colour */}
       <header
+        data-tone={theme}
         className="intro-fade fixed inset-x-0 top-0 z-50"
         style={{ "--d": "0.55s" } as CSSProperties}
       >
         <div
           aria-hidden
-          className={`absolute inset-0 border-b backdrop-blur-md transition-[opacity,background-color,border-color] duration-500 ${
-            dark ? "border-white/8 bg-ink/70" : "border-ink/8 bg-paper/85"
+          className={`absolute inset-0 border-b transition-[opacity,background-color,border-color] duration-500 ${
+            dark ? "border-line-inverse bg-inverse/95" : "border-line bg-paper/95"
           } ${scrolled && !open ? "opacity-100" : "opacity-0"}`}
         />
         <div className="shell relative flex h-18 items-center justify-between gap-6">
           <a
             href="#main"
             aria-label="Asventia, back to top"
-            className={`transition-colors duration-500 ${dark ? "text-white" : "text-ink"}`}
+            className={`transition-colors duration-500 ${dark ? "text-on-inverse" : "text-ink"}`}
           >
             <Wordmark className="h-[1.3rem] w-auto" />
           </a>
@@ -85,8 +87,8 @@ export function SiteHeader() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className={`text-[0.9rem] transition-colors duration-300 ${
-                      dark ? "text-white/72 hover:text-white" : "text-ink/65 hover:text-ink"
+                    className={`text-[0.95rem] font-medium transition-colors duration-300 ${
+                      dark ? "text-white/75 hover:text-on-inverse" : "text-ink-soft hover:text-ink"
                     }`}
                   >
                     {link.label}
@@ -96,22 +98,14 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <a
-              href={bookingHref}
-              className={`hidden items-center gap-2 px-4.5 py-2.5 text-[0.88rem] font-medium transition-colors duration-500 sm:inline-flex ${
-                dark ? "bg-white text-ink hover:bg-paper" : "bg-ink text-white hover:bg-ink-3"
-              }`}
-            >
-              Book a call <ArrowRight className="size-3.5" />
-            </a>
+          <div className="flex items-center gap-3 lg:hidden">
             <button
               ref={menuButton}
               type="button"
               onClick={() => setOpen((o) => !o)}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className={`grid size-11 place-items-center ring-1 ring-inset transition-colors duration-500 lg:hidden ${
+              className={`grid size-11 place-items-center rounded-xs ring-1 ring-inset transition-colors duration-500 ${
                 dark ? "text-white ring-white/25" : "text-ink ring-ink/20"
               }`}
             >
@@ -135,7 +129,7 @@ export function SiteHeader() {
 
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-ink text-white transition-[clip-path] duration-700 ease-out-expo lg:hidden ${
+        className={`fixed inset-0 z-40 bg-inverse text-on-inverse transition-[clip-path] duration-700 ease-out-expo lg:hidden ${
           open ? "[clip-path:inset(0_0_0_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
         }`}
         inert={!open}
@@ -158,17 +152,9 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <div className="space-y-5">
-            <a
-              href={bookingHref}
-              className="inline-flex items-center gap-2 bg-white px-6 py-3.5 font-medium text-ink"
-            >
-              Book a 30-minute call <ArrowRight className="size-4" />
-            </a>
-            <p className="tabular text-sm text-white/55">
-              {site.email} · {site.location}
-            </p>
-          </div>
+          <p className="tabular text-sm text-on-inverse-muted">
+            {site.email} · {site.location}
+          </p>
         </div>
       </div>
     </>

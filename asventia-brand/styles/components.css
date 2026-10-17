@@ -1,0 +1,155 @@
+/* Asventia — reference component styles (av- prefix), the same ones the design system previews use.
+   Optional: use them directly, or treat them as the spec when building the site's own components. Requires tokens.css. */
+.av-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.av-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+.av-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
+.av-num { font-variant-numeric: tabular-nums; }
+
+/* Icon + Logo */
+.av-icon { display: inline-block; flex: none; vertical-align: middle; }
+.av-logo { display: inline-block; flex: none; color: var(--ink); vertical-align: middle; }
+.av-logo svg { display: block; height: 100%; width: auto; }
+
+/* Button */
+.av-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); height: 44px; padding: 0 20px; border: 1px solid transparent; border-radius: var(--radius-sm); font-family: var(--font-text); font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: 0; text-decoration: none; white-space: nowrap; cursor: pointer; background: transparent; color: var(--ink); transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.av-btn:focus-visible, .av-input:focus-visible { outline: 2px solid transparent; outline-offset: 2px; box-shadow: var(--focus-ring); }
+.av-btn-sm { height: 36px; padding: 0 14px; font-size: 14px; }
+.av-btn-lg { height: 52px; padding: 0 28px; font-size: 16px; }
+.av-btn-primary { background: var(--ink); color: var(--on-inverse); }
+.av-btn-primary:hover { background: var(--ink-soft); }
+.av-btn-accent { background: var(--accent); color: var(--on-accent); }
+.av-btn-accent:hover { background: var(--accent-strong); }
+.av-btn-secondary { border-color: var(--line-strong); color: var(--ink); }
+.av-btn-secondary:hover { background: var(--paper-sunken); }
+.av-btn-ghost { color: var(--ink); padding-left: 12px; padding-right: 12px; }
+.av-btn-ghost:hover { background: var(--paper-sunken); }
+.av-btn[disabled] { cursor: not-allowed; background: var(--paper-sunken); border-color: transparent; color: var(--ink-muted); }
+
+/* Badge */
+.av-badge { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 8px; border-radius: var(--radius-sm); border: 1px solid transparent; font-family: var(--font-text); font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; background: var(--paper-sunken); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.av-badge-dot { width: 6px; height: 6px; background: currentColor; flex: none; }
+.av-badge-accent { background: var(--accent-soft); color: var(--accent-strong); }
+.av-badge-positive { background: var(--positive-soft); color: var(--positive); }
+.av-badge-warning { background: var(--warning-soft); color: var(--warning); }
+.av-badge-negative { background: var(--negative-soft); color: var(--negative); }
+.av-badge-outline { background: transparent; border-color: var(--line-strong); color: var(--ink-soft); }
+.av-badge-inverse { background: var(--inverse); color: var(--on-inverse); }
+
+/* Eyebrow */
+.av-eyebrow { display: flex; align-items: center; gap: var(--space-3); margin: 0; font-family: var(--font-text); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+.av-eyebrow-rule { width: 24px; height: 2px; background: currentColor; flex: none; }
+.av-eyebrow-accent { color: var(--accent); }
+.av-eyebrow-inverse { color: var(--on-inverse-muted); }
+
+/* Card */
+.av-card { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--line); border-radius: var(--radius-none); background: var(--paper-raised); color: var(--ink); min-width: 0; }
+.av-card-head { display: flex; align-items: flex-start; gap: var(--space-4); }
+.av-card-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-none); background: var(--paper-sunken); color: var(--ink); flex: none; }
+.av-card-title { margin: 0; font-family: var(--font-display); font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -.01em; }
+.av-card-body { margin: 0; font-size: 15px; line-height: 24px; color: var(--ink-soft); }
+.av-card-tint { background: var(--accent-soft); border-color: var(--accent-soft); }
+.av-card-tint .av-card-icon { background: var(--accent); color: var(--on-accent); }
+.av-card-tint .av-eyebrow { color: var(--accent-strong); }
+.av-card-sunken { background: var(--paper-sunken); border-color: var(--paper-sunken); }
+.av-card-sunken .av-card-icon { background: var(--paper-raised); }
+.av-card-inverse { background: var(--inverse); border-color: var(--inverse); color: var(--on-inverse); }
+.av-card-inverse .av-card-body, .av-card-inverse .av-eyebrow { color: var(--on-inverse-muted); }
+.av-card-inverse .av-card-icon { background: var(--on-inverse); color: var(--inverse); }
+
+/* Stat */
+.av-stat { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.av-stat-value { margin: 0; font-family: var(--font-display); font-size: 48px; line-height: 48px; font-weight: 600; letter-spacing: -.025em; font-variant-numeric: tabular-nums; color: inherit; }
+.av-stat-sm .av-stat-value { font-size: 28px; line-height: 34px; letter-spacing: -.015em; }
+.av-stat-accent .av-stat-value { color: var(--accent); }
+.av-card-inverse .av-stat-accent .av-stat-value { color: var(--accent-inverse); }
+.av-stat-label { margin: 0 0 var(--space-1); font-family: var(--font-text); font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.av-stat-note { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-soft); }
+.av-card-inverse .av-stat-label, .av-card-inverse .av-stat-note { color: var(--on-inverse-muted); }
+
+/* Field */
+.av-field { display: grid; gap: 6px; min-width: 0; }
+.av-field-label { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--ink); }
+.av-input { box-sizing: border-box; width: 100%; height: 44px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--paper-raised); color: var(--ink); font-family: var(--font-text); font-size: 16px; line-height: 24px; }
+.av-input::placeholder { color: var(--ink-muted); opacity: 1; }
+.av-field-hint { margin: 0; font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+.av-field-error .av-input { border-color: var(--negative); border-width: 2px; padding: 0 13px; }
+.av-field-error .av-field-hint { display: flex; align-items: center; gap: 6px; color: var(--negative); }
+
+/* Band */
+.av-band { box-sizing: border-box; display: flex; align-items: center; gap: var(--space-8); padding: var(--space-4) var(--space-6); border-radius: var(--radius-none); background: var(--inverse); color: var(--on-inverse); }
+.av-band-label { flex: none; max-width: 160px; font-family: var(--font-text); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--on-inverse-muted); }
+.av-band-text { margin: 0; font-family: var(--font-display); font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -.01em; }
+.av-band-sunken { background: var(--paper-sunken); color: var(--ink); }
+.av-band-sunken .av-band-label { color: var(--ink-muted); }
+.av-band-sunken .av-band-text { font-family: var(--font-text); font-size: 16px; line-height: 26px; font-weight: 400; letter-spacing: 0; }
+.av-band-flush { border-radius: 0; }
+
+/* Phase */
+.av-phase { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-top: 2px solid var(--line-strong); border-radius: var(--radius-none); background: var(--paper-sunken); color: var(--ink); min-width: 0; }
+.av-phase-label { margin: 0; font-family: var(--font-text); font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.av-phase-title { margin: 0; font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: -.005em; }
+.av-phase-body { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-soft); }
+.av-phase-note { margin: auto 0 0; padding-top: var(--space-2); font-size: 14px; line-height: 22px; font-weight: 600; color: var(--ink); }
+.av-phase-active { background: var(--accent-soft); border-top-color: var(--accent); }
+.av-phase-active .av-phase-label, .av-phase-active .av-phase-note { color: var(--accent-strong); }
+
+/* CheckList */
+.av-checklist { list-style: none; margin: 0; padding: 0; display: grid; }
+.av-checklist-item { position: relative; display: flex; align-items: center; gap: var(--space-3); padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 22px; color: var(--ink); }
+.av-checklist-item:last-child { border-bottom: 0; }
+.av-check { display: grid; place-items: center; width: 18px; height: 18px; flex: none; box-sizing: border-box; border-radius: var(--radius-sm); }
+.av-check-done { background: var(--positive); color: var(--paper-raised); }
+.av-check-todo { border: 1.5px solid var(--line-strong); background: var(--paper-raised); }
+.av-checklist-state { margin-left: auto; font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+
+/* Flow */
+.av-flow { display: flex; align-items: stretch; gap: var(--space-2); }
+.av-flow-step { box-sizing: border-box; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-none); background: var(--paper-raised); }
+.av-flow-label { margin: 0; font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.av-flow-title { margin: 0; font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: -.005em; }
+.av-flow-body { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-soft); }
+.av-flow-arrow { flex: none; align-self: center; color: var(--ink-muted); }
+.av-flow-inverse { flex-grow: 1.4; background: var(--inverse); border-color: var(--inverse); color: var(--on-inverse); }
+.av-flow-inverse .av-flow-label, .av-flow-inverse .av-flow-body { color: var(--on-inverse-muted); }
+.av-flow-accent { background: var(--accent-soft); border-color: var(--accent-soft); }
+.av-flow-accent .av-flow-label { color: var(--accent-strong); }
+
+/* Bubble */
+.av-thread { display: flex; flex-direction: column; gap: var(--space-2); max-width: 420px; }
+.av-bubble { box-sizing: border-box; max-width: 86%; padding: 10px 14px; border-radius: var(--radius-none); font-size: 15px; line-height: 22px; }
+.av-bubble-cliente { align-self: flex-start; border: 1px solid var(--line); border-left: 2px solid var(--line-strong); background: var(--paper-raised); color: var(--ink); }
+.av-bubble-agente { align-self: flex-end; border: 1px solid var(--inverse); background: var(--inverse); color: var(--on-inverse); }
+.av-bubble-meta { display: block; margin-top: 2px; font-size: 12px; line-height: 16px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink-muted); }
+.av-bubble-agente .av-bubble-meta { color: var(--on-inverse-muted); }
+
+/* Flujo (brand pattern) */
+.av-flujo { display: block; }
+.av-flujo-ink { fill: var(--ink); }
+.av-flujo-support { fill: var(--support); }
+.av-flujo-accent { fill: var(--accent); }
+.av-flujo-on-inverse .av-flujo-ink { fill: var(--on-inverse); }
+.av-flujo-on-inverse .av-flujo-support { fill: var(--on-inverse-muted); }
+.av-flujo-on-inverse .av-flujo-accent { fill: var(--accent-inverse); }
+.av-flujo-on-accent .av-flujo-ink { fill: var(--on-accent); }
+.av-flujo-on-accent .av-flujo-support { fill: var(--accent-soft); }
+.av-flujo-on-accent .av-flujo-accent { fill: var(--accent-strong); }
+
+/* Estela (wave system) — hairlines over a ground; tone names the ground it sits on */
+.av-estela { display: block; }
+.av-estela-line, .av-estela-stroke-line { stroke: var(--ink); }
+.av-estela-accent, .av-estela-stroke-accent { stroke: var(--accent); }
+.av-estela-stroke-ground { stroke: var(--paper); }
+.av-estela-fill-ground { fill: var(--paper); }
+.av-estela-fill-accent { fill: var(--accent); }
+.av-estela-on-raised .av-estela-stroke-ground, .av-estela-on-raised .av-estela-fill-ground { stroke: var(--paper-raised); fill: var(--paper-raised); }
+.av-estela-on-raised .av-estela-stroke-ground { fill: none; }
+.av-estela-on-inverse .av-estela-line, .av-estela-on-inverse .av-estela-stroke-line { stroke: var(--on-inverse); }
+.av-estela-on-inverse .av-estela-accent, .av-estela-on-inverse .av-estela-stroke-accent { stroke: var(--accent-inverse); }
+.av-estela-on-inverse .av-estela-stroke-ground { stroke: var(--inverse); }
+.av-estela-on-inverse .av-estela-fill-ground { fill: var(--inverse); }
+.av-estela-on-inverse .av-estela-fill-accent { fill: var(--accent-inverse); }
+.av-estela-on-accent .av-estela-line, .av-estela-on-accent .av-estela-stroke-line { stroke: var(--on-accent); }
+.av-estela-on-accent .av-estela-accent, .av-estela-on-accent .av-estela-stroke-accent { stroke: var(--inverse); }
+.av-estela-on-accent .av-estela-stroke-ground { stroke: var(--accent); }
+.av-estela-on-accent .av-estela-fill-ground { fill: var(--accent); }
+.av-estela-on-accent .av-estela-fill-accent { fill: var(--on-accent); }

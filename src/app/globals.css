@@ -2,47 +2,60 @@
 @import "lenis/dist/lenis.css";
 
 /* ------------------------------------------------------------------
-   Asventia tokens. Paper and ink from the brand deck, plus one cool accent
-   taken from the hero footage's holographic lines. Used sparingly.
+   Asventia tokens, mirrored from asventia-brand/styles/tokens.css (light
+   theme). That file isn't imported directly because its unlayered base
+   rules (links, body, focus) would override the utilities.
+   White and navy carry the page; the call-to-action blue is the only
+   saturated colour, and it appears nowhere else.
    ------------------------------------------------------------------ */
 @theme {
-  --color-paper: #f4f3ef;
-  --color-stone: #eeebe4;
-  --color-card: #faf9f5;
-  --color-line: #e2ded6;
-  --color-line-strong: #cdc7bc;
-  --color-ink: #15161a;
-  --color-ink-2: #1b1c21;
-  --color-ink-3: #24262c;
-  --color-body: #454b55;
-  --color-muted: #5f6570;
-  --color-sand: #c3bdb1;
-  /* accent on ink (8:1) / accent-deep on paper (5:1); never orange */
-  --color-accent: #6fb6e0;
-  --color-accent-deep: #2a6a96;
+  --color-paper: #f7f8fa;
+  --color-paper-raised: #ffffff;
+  --color-paper-sunken: #edf0f4;
+  --color-line: #dce1e8;
+  --color-line-strong: #7f8a9b;
+  --color-ink: #0b1b2e;
+  --color-ink-soft: #39465a;
+  --color-ink-muted: #5b6677;
+  --color-inverse: #0b1b2e;
+  --color-on-inverse: #ffffff;
+  --color-on-inverse-muted: #9fafc4;
+  --color-line-inverse: #24364f;
+  --color-support: #b8c3d1;
 
-  --text-hero: min(clamp(2.3rem, 0.75rem + 4.75vw, 6.6rem), 9.2svh);
+  /* "Book your 15-minute demo" and nothing else. The brand's electric blue, lifted so it
+     clears 3:1 on navy (3.8:1) and on paper (4.3:1) while white text keeps 4.6:1.
+     On hover white wipes in and the label turns blue. */
+  --color-cta: #3a67ff;
+  --color-on-cta: #ffffff;
+
+  --text-hero: min(clamp(2.4rem, 0.8rem + 4.9vw, 6.8rem), 9.6svh);
   --text-hero--line-height: 1;
   --text-hero--letter-spacing: -0.03em;
-  --text-h2: clamp(2rem, 1.2rem + 2.7vw, 4rem);
-  --text-h2--line-height: 1.04;
-  --text-h2--letter-spacing: -0.03em;
-  --text-h3: clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem);
-  --text-h3--line-height: 1.2;
-  --text-h3--letter-spacing: -0.018em;
-  --text-lead: clamp(1.06rem, 0.98rem + 0.36vw, 1.3rem);
-  --text-lead--line-height: 1.55;
+  --text-h2: clamp(2rem, 1.25rem + 2.4vw, 3.5rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lead: clamp(1.06rem, 0.98rem + 0.36vw, 1.25rem);
+  --text-lead--line-height: 1.5;
+  --text-metric: clamp(3.5rem, 2.2rem + 4vw, 6rem);
+  --text-metric--line-height: 1;
+  --text-metric--letter-spacing: -0.03em;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   --breakpoint-xs: 30rem;
 }
 
+/* Outfit for headings and figures, Figtree for everything else (asventia-brand/lib/fonts.ts). */
 @theme inline {
-  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), "Avenir Next", "Century Gothic", system-ui, sans-serif;
+  --font-sans: var(--font-figtree), "Helvetica Neue", Arial, system-ui, sans-serif;
 }
 
 /* ------------------------------------------------------------------
@@ -59,26 +72,39 @@
   body {
     background: var(--color-paper);
     font-family: var(--font-sans);
-    font-feature-settings: "cv11", "ss01";
+    font-size: 16px;
+    line-height: 26px;
     overflow-x: clip;
   }
 
   ::selection {
-    background: var(--color-accent-deep);
-    color: #fff;
+    background: var(--color-support);
+    color: var(--color-ink);
   }
 
+  /* Brand focus: an ink ring on paper, a white one on navy. Never the CTA blue. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
+  }
+  :is([data-nav="dark"], [data-tone="dark"], .bg-inverse, dialog) :focus-visible {
+    outline-color: var(--color-on-inverse);
   }
 
   [id] {
     scroll-margin-top: 5rem;
   }
 
+  /* Weight is the emphasis: headings sit at 400 with the key idea in <strong>. */
   h1,
-  h2,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  :is(h1, h2) strong {
+    font-weight: 600;
+  }
   h3,
   h4 {
     font-family: var(--font-display);
@@ -102,31 +128,34 @@
     padding-inline: clamp(1.25rem, 4vw, 3.5rem);
   }
 
-  /* The deck's "— LABEL" marker. Used sparingly, not above every heading. */
+  /* Brand eyebrow above each heading: uppercase label with a 24×2px rule before it. */
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-ink-muted);
   }
   .eyebrow::before {
     content: "";
-    width: 1.1rem;
-    height: 1px;
+    width: 24px;
+    height: 2px;
+    flex: none;
     background: currentColor;
   }
 
-  /* Small uppercase data label, in the body sans. */
+  /* Brand label: small uppercase data label. */
   .label {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
   }
@@ -135,48 +164,9 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Fine film grain. Takes the digital sheen off footage and flat ink panels. */
+  /* Fine film grain. Takes the digital sheen off footage. */
   .grain {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-
-  /* Range input used by the calculator. --fill is set inline from the value. */
-  .range {
-    appearance: none;
-    width: 100%;
-    height: 1.75rem;
-    background: transparent;
-    cursor: pointer;
-  }
-  .range::-webkit-slider-runnable-track {
-    height: 2px;
-    background: linear-gradient(to right, var(--color-accent) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
-  }
-  .range::-moz-range-track {
-    height: 2px;
-    background: linear-gradient(to right, var(--color-accent) var(--fill), rgb(255 255 255 / 0.16) var(--fill));
-  }
-  .range::-webkit-slider-thumb {
-    appearance: none;
-    width: 14px;
-    height: 20px;
-    margin-top: -9px;
-    background: #fff;
-    border: 0;
-    transition: background-color 0.2s var(--ease-out-quint);
-  }
-  .range::-moz-range-thumb {
-    width: 14px;
-    height: 20px;
-    border: 0;
-    border-radius: 0;
-    background: #fff;
-  }
-  .range:active::-webkit-slider-thumb {
-    background: var(--color-accent);
-  }
-  .range:focus-visible {
-    outline-offset: 6px;
   }
 
   /* Masked line used for headline reveals. Padding keeps descenders unclipped. */
@@ -285,7 +275,8 @@
   animation: curtain-lift 1.3s var(--ease-out-quint) both;
 }
 
-@keyframes marquee-progress {
+/* Client stories: the active client's bar fills while its story is up */
+@keyframes progress {
   from {
     transform: scaleX(0);
   }
@@ -294,17 +285,7 @@
   }
 }
 
-@keyframes caret-blink {
-  0%,
-  45% {
-    opacity: 1;
-  }
-  55%,
-  100% {
-    opacity: 0;
-  }
-}
-
+/* Typing indicator in the example run */
 @keyframes dots {
   0%,
   80%,
@@ -315,50 +296,6 @@
   40% {
     opacity: 1;
     transform: translateY(-2px);
-  }
-}
-
-@keyframes scan {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(var(--scan-distance, 100%));
-  }
-}
-
-@keyframes step-on {
-  0%,
-  6% {
-    opacity: 0.28;
-  }
-  12%,
-  72% {
-    opacity: 1;
-  }
-  84%,
-  100% {
-    opacity: 0.28;
-  }
-}
-
-@keyframes halo {
-  from {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  to {
-    transform: scale(1.75);
-    opacity: 0;
-  }
-}
-
-@keyframes wave {
-  from {
-    transform: scaleY(0.12);
-  }
-  to {
-    transform: scaleY(1);
   }
 }
 

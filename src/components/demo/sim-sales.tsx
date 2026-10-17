@@ -77,7 +77,7 @@ export function SalesSim({ playing, instant, onDone }: SimProps) {
             </span>
           </Appear>
           <Appear show={step === S.typing3} className="self-end">
-            <span className="inline-flex bg-accent/80 px-3.5 py-3 text-ink/80">
+            <span className="inline-flex bg-white/85 px-3.5 py-3 text-ink/70">
               <TypingDots />
             </span>
           </Appear>
@@ -174,16 +174,16 @@ function Bubble({ side, time, children }: { side: "in" | "out"; time: string; ch
   return (
     <div
       className={`px-3.5 py-2.5 text-[0.84rem] leading-snug ${
-        out ? "bg-accent text-ink" : "bg-white/8 text-white/90"
+        out ? "bg-on-inverse text-ink" : "bg-white/8 text-white/90"
       }`}
     >
       {out && (
-        <span className="mb-1 flex items-center gap-1.5 tabular text-[0.62rem] tracking-wide text-white/65 uppercase">
+        <span className="mb-1 flex items-center gap-1.5 tabular text-[0.62rem] tracking-wide text-ink/70 uppercase">
           <Mark className="h-2 w-auto" /> Asventia agent
         </span>
       )}
       {children}
-      <span className={`mt-1 block text-right tabular text-[0.6rem] ${out ? "text-white/60" : "text-white/55"}`}>
+      <span className={`mt-1 block text-right tabular text-[0.6rem] ${out ? "text-ink/60" : "text-white/55"}`}>
         {time}
       </span>
     </div>
